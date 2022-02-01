@@ -15,6 +15,7 @@ import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 public class RecentlyUsedListTest {
 
@@ -40,6 +41,17 @@ public class RecentlyUsedListTest {
     recentlyUsedList.addItemToList(item);
     Object retrievedItem = recentlyUsedList.retrieveItem(index);
     assertEquals(item, retrievedItem);
+  }
+
+  @Test
+  public void isNotDefinedForOutOfBoundsIndex(){
+    int index = recentlyUsedList.getNumberOfItems();
+    try{
+      recentlyUsedList.retrieveItem(index);
+      fail("should have thrown exception");
+    } catch (IndexOutOfBoundsException e) {
+      assertThat(e.getMessage(), containsString("index out of bounds"));
+    }
   }
 
 }

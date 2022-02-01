@@ -19,6 +19,9 @@ public class RecentlyUsedList {
   }
 
   public Object retrieveItem(int index) {
+    if (index >= getNumberOfItems()){
+      throw new IndexOutOfBoundsException("not defined for index out of bounds");
+    }
     return list.get(index);
   }
 
