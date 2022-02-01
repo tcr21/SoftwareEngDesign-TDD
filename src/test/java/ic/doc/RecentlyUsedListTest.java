@@ -1,4 +1,4 @@
-/* Recently Used List
+/* Recently Used List - desired behaviour
 - The list should be empty when initialised
 - We should be able to add things to the list
 - We should be able to retrieve items from the list

@@ -14,6 +14,7 @@ public class RecentlyUsedList {
   }
 
   public void addItemToList(Object item) {
+    // Remove duplicates
     for (int i = 0; i < numberOfItems; i++) {
       if (item == list.get(i)) {
         list.remove(i);
