@@ -33,4 +33,13 @@ public class RecentlyUsedListTest {
     assertEquals(previousNumberOfItems + 1, recentlyUsedList.getNumberOfItems());
   }
 
+  @Test
+  public void canRetrieveThingsFromList(){
+    int index = 0;
+    String item = "07000000000";
+    recentlyUsedList.addItemToList(item);
+    Object retrievedItem = recentlyUsedList.retrieveItem(index);
+    assertEquals(item, retrievedItem);
+  }
+
 }

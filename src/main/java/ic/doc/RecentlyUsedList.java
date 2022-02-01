@@ -18,5 +18,9 @@ public class RecentlyUsedList {
     numberOfItems++;
   }
 
+  public Object retrieveItem(int index) {
+    return list.get(index);
+  }
+
 
 }
