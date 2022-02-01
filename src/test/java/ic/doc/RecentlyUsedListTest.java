@@ -36,6 +36,14 @@ public class RecentlyUsedListTest {
   }
 
   @Test
+  public void canAddOtherThingsToList(){
+    int previousNumberOfItems = recentlyUsedList.getNumberOfItems();
+    int item = 42;
+    recentlyUsedList.addItemToList(item);
+    assertEquals(previousNumberOfItems + 1, recentlyUsedList.getNumberOfItems());
+  }
+
+  @Test
   public void canRetrieveThingsFromList(){
     int index = 0;
     String item = "07000000000";
