@@ -14,6 +14,12 @@ public class RecentlyUsedList {
   }
 
   public void addItemToList(Object item){
+    for (int i = 0; i < numberOfItems; i++){
+      if (item == list.get(i)) {
+        list.remove(i);
+      }
+    }
+    // Add to front of list
     list.add(0, item);
     numberOfItems++;
   }
@@ -24,6 +30,5 @@ public class RecentlyUsedList {
     }
     return list.get(index);
   }
-
 
 }

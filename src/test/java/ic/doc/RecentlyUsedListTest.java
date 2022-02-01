@@ -15,6 +15,7 @@ import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.fail;
 
 public class RecentlyUsedListTest {
@@ -51,6 +52,28 @@ public class RecentlyUsedListTest {
       fail("should have thrown exception");
     } catch (IndexOutOfBoundsException e) {
       assertThat(e.getMessage(), containsString("index out of bounds"));
+    }
+  }
+
+  @Test
+  public void mostRecentItemIsFirstInList(){
+    String item1 = "07000000001";
+    String item2 = "07000000002";
+    String item3 = "07000000003";
+    recentlyUsedList.addItemToList(item1);
+    recentlyUsedList.addItemToList(item2);
+    recentlyUsedList.addItemToList(item3);
+    assertEquals(recentlyUsedList.retrieveItem(0), item3);
+    assertEquals(recentlyUsedList.retrieveItem(1), item2);
+    assertEquals(recentlyUsedList.retrieveItem(2), item1);
+  }
+
+  @Test
+  public void itemsInListAreUnique(){
+    for (int i = 0; i < recentlyUsedList.getNumberOfItems(); i++){
+      for (int j = 0; j < recentlyUsedList.getNumberOfItems(); j++){
+        assertNotEquals(recentlyUsedList.retrieveItem(i), recentlyUsedList.retrieveItem(j));
+      }
     }
   }
 
