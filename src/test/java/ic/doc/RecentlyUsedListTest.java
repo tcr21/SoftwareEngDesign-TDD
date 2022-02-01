@@ -28,7 +28,7 @@ public class RecentlyUsedListTest {
   }
 
   @Test
-  public void canAddThingsToList(){
+  public void canAddThingsToList() {
     int previousNumberOfItems = recentlyUsedList.getNumberOfItems();
     String item = "07000000000";
     recentlyUsedList.addItemToList(item);
@@ -36,7 +36,7 @@ public class RecentlyUsedListTest {
   }
 
   @Test
-  public void canAddOtherThingsToList(){
+  public void canAddOtherThingsToList() {
     int previousNumberOfItems = recentlyUsedList.getNumberOfItems();
     int item = 42;
     recentlyUsedList.addItemToList(item);
@@ -44,7 +44,7 @@ public class RecentlyUsedListTest {
   }
 
   @Test
-  public void canRetrieveThingsFromList(){
+  public void canRetrieveThingsFromList() {
     int index = 0;
     String item = "07000000000";
     recentlyUsedList.addItemToList(item);
@@ -53,9 +53,9 @@ public class RecentlyUsedListTest {
   }
 
   @Test
-  public void isNotDefinedForOutOfBoundsIndex(){
+  public void isNotDefinedForOutOfBoundsIndex() {
     int index = recentlyUsedList.getNumberOfItems();
-    try{
+    try {
       recentlyUsedList.retrieveItem(index);
       fail("should have thrown exception");
     } catch (IndexOutOfBoundsException e) {
@@ -64,7 +64,7 @@ public class RecentlyUsedListTest {
   }
 
   @Test
-  public void mostRecentItemIsFirstInList(){
+  public void mostRecentItemIsFirstInList() {
     String item1 = "07000000001";
     String item2 = "07000000002";
     String item3 = "07000000003";
@@ -77,12 +77,11 @@ public class RecentlyUsedListTest {
   }
 
   @Test
-  public void itemsInListAreUnique(){
-    for (int i = 0; i < recentlyUsedList.getNumberOfItems(); i++){
-      for (int j = 0; j < recentlyUsedList.getNumberOfItems(); j++){
+  public void itemsInListAreUnique() {
+    for (int i = 0; i < recentlyUsedList.getNumberOfItems(); i++) {
+      for (int j = 0; j < recentlyUsedList.getNumberOfItems(); j++) {
         assertNotEquals(recentlyUsedList.retrieveItem(i), recentlyUsedList.retrieveItem(j));
       }
     }
   }
-
 }

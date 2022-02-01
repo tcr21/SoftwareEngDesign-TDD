@@ -13,8 +13,8 @@ public class RecentlyUsedList {
     return numberOfItems;
   }
 
-  public void addItemToList(Object item){
-    for (int i = 0; i < numberOfItems; i++){
+  public void addItemToList(Object item) {
+    for (int i = 0; i < numberOfItems; i++) {
       if (item == list.get(i)) {
         list.remove(i);
       }
@@ -25,10 +25,9 @@ public class RecentlyUsedList {
   }
 
   public Object retrieveItem(int index) {
-    if (index >= getNumberOfItems()){
+    if (index >= getNumberOfItems()) {
       throw new IndexOutOfBoundsException("not defined for index out of bounds");
     }
     return list.get(index);
   }
-
 }
